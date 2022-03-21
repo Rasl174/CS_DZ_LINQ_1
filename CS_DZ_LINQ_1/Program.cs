@@ -11,13 +11,13 @@ namespace CS_DZ_LINQ_1
         static void Main(string[] args)
         {
             List<Criminal> criminals = new List<Criminal> { new Criminal("Валера Местный", true, 170, 90, "Русский"), new Criminal("John Mitchel", false, 200, 80, "Американец"),
-            new Criminal("Хафпек Игнатьевич", false, 180, 75, "Ингуш"),  new Criminal("Кукан Маленький", false, 210, 120, "Русский")};
+            new Criminal("Хафпек Игнатьевич", false, 180, 75, "Ингуш"),  new Criminal("Алексей Маленький", false, 210, 120, "Русский")};
 
             var filteredCriminals = criminals.Where(criminal => criminal.IsPrison == false);
 
-            Console.WriteLine("Введите рост, вес и национальность: ");
-            int height = Convert.ToInt32(Console.ReadLine());
-            int weight = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Это база данных преступников.\nДля поиска ведите рост, вес и национальность: ");
+            int.TryParse(Console.ReadLine(), out int height);
+            int.TryParse(Console.ReadLine(), out int weight);
             string nationality = Console.ReadLine();
 
             filteredCriminals = from Criminal criminal in criminals
